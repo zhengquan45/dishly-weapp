@@ -1,0 +1,20 @@
+
+.split-order-container{
+  background: #fff;
+}
+
+.split-order-item{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  background: aliceblue;
+}
+
+.split-order-text {
+  flex: 1;
+  font-size: 12px;
+  color:  #5d5d5d;
+  margin-left: 10px;
+}

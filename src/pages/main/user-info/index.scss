@@ -1,0 +1,102 @@
+$user-info-bottom-color: #fdf4f8;
+
+.vip-info-container {
+  display: flex;
+  flex-direction: column;
+  background-color: #fff; /* 白色背景 */
+  border-radius: 8px; /* 圆角 */
+  height: 120px;
+  z-index:1;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* 阴影 */
+  margin: 5px 10px; /* 外边距 */
+
+  .vip-info-body{
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    
+    .vip-info-body-container{
+      width: 100%;
+      display: flex;
+    }
+
+    .vip-user-avatar{
+      flex:1;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+    }
+
+    .vip-user-info{
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .vip-user-nick{
+      font-size: 16px;
+      font-weight: bold;
+    }
+    
+    .vip-user-level{
+      text-align: center;
+      font-size: 12px;
+      background: #efe3ff;
+      color: #c590fb;
+      border-radius: 10px;
+      height: 20px;
+      width: 60px;
+    }
+
+    .vip-user-assert{
+      width:80px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .vip-user-assert-text{
+      color: rgb(169, 169, 169);
+      font-size: 12px;
+    }
+
+  }
+
+  .vip-info-bottom{
+    display: flex;
+    align-items: center;
+    height: 40px;
+    background: $user-info-bottom-color;
+    border-radius: 0 0 8px 8px; /* 圆角 */
+    margin: 2px;
+    padding: 0 20px;
+
+    .vip-info-bottom-title {
+      background-clip: text;
+      color:transparent;
+      background-image: linear-gradient(to right, #000, #5d1d18);
+      font-size: 16px;
+    }
+    
+    .vip-info-bottom-subtitle {
+      margin-left: 10px;
+      font-size: 14px;
+      color:#946a72;
+    }
+    
+    .vip-info-bottom-arrow{
+      flex: 1;
+      display: flex;
+      flex-direction: row-reverse;
+    }
+  }
+
+}
+
+
+
+

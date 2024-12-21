@@ -1,0 +1,22 @@
+.marketing-operate{
+  display: flex;
+  flex-direction: row;
+  height: 80px;
+  margin: 0 10px;
+  gap: 10px;
+}
+
+.marketing-operate-item{
+  flex: 1;
+  margin: 5px 0;
+  font-size: 12px;
+}
+
+.operate-button{
+  background-color: #fff; /* 白色背景 */
+  border-radius: 8px; /* 圆角 */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* 阴影 */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

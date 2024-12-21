@@ -1,0 +1,32 @@
+.delivery-container{
+    height: 80px;
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .delivery-item{
+    flex: 1;
+    display: flex;
+    align-items: center;
+  }
+  
+  .delivery-address-arrow-right{
+    width: 24px;
+    display: flex;
+    flex-direction: row-reverse;
+  }
+  .delivery-address-prefix-icon{
+    width: 24px;
+  }
+  
+  .delivery-address-text{
+    flex: 1;
+    font-size: 18px;
+    font-weight: 500;
+  }
+  .delivery-address-subtext{
+    flex: 1;
+    font-size: 14px;
+    color: #afafaf;
+  }
