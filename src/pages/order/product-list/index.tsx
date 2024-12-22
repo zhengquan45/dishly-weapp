@@ -1,19 +1,22 @@
 import { useState } from 'react';
 import { View }from '@tarojs/components'
 import './index.scss'
-import SplitOrder from './split-order';
-import { IconFont } from '@nutui/icons-react-taro'
-import plus from '@assets/images/plus.png'
+import SplitOrder from './split-order'
+import ProductItem from '../product-item'
 
 
 
-function ProductList({categorys}) {
+function ProductList({categorys, products, items, plusItem, minusItem}) {
   const [categoryIndex, setCategoryIndex] = useState(0);
 
   const productCategoryItemClass = (index) => {
     return `product-category-item ${categoryIndex === index ? 'product-category-item-active' : ''}`
   }
 
+  const getItemsNum = (id) => {
+    const item = items.find((item) => item.id === id);
+    return item ? item.num : 0;
+  }  
   
   return (
       <>
@@ -33,19 +36,9 @@ function ProductList({categorys}) {
           <View className='product-item-list'>
             <View className='product-item-list-body'>
             {categoryIndex == 0? <SplitOrder/>:''}
-            <View className='product-item'>
-              <View className='product-item-image'>
-                <img src='https://img.yzcdn.cn/vant/apple-1.jpg' />
-              </View>
-              <View className='product-item-info'>
-                <View className='product-item-title'>福气满满套餐</View>
-                <View className='product-item-subtitle'>满12抽行李箱</View>
-                <View className='product-item-price'>￥5.00</View>
-                <IconFont name={plus} size='20' style={{position: 'absolute',right:0,bottom: 0,color:'red'}} onClick={()=>{
-                  console.log('点击了加号')
-                }}/>
-              </View>
-            </View>
+            {products.map((product, index) => (
+                <ProductItem key={index} productItem={product} itemNum={getItemsNum(product.id)} plusItem={plusItem} minusItem={minusItem}/>
+            ))}
             </View>
           </View>
         </View>

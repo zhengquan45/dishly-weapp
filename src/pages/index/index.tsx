@@ -8,7 +8,7 @@ import Coupon from '../coupon'
 import './index.scss'
 import { useState } from "react";
 import Redeem from '../redeem'
-import { Page } from '../../const'
+import { Page } from '../../constants/const'
 
 
 function Index() {

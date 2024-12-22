@@ -1,7 +1,7 @@
 import { View } from '@tarojs/components'
 import { Avatar } from '@nutui/nutui-react-taro'
 import './index.scss'
-import { Page } from 'src/const'
+import { Page } from 'src/constants/const'
 
 
 function UserInfo({onActiveTabChange}) {

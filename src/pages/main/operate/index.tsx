@@ -3,7 +3,7 @@ import { ActionSheet , ActionSheetOption } from '@nutui/nutui-react-taro'
 import './index.scss'
 import { useState } from "react";
 import Taro from "@tarojs/taro";
-import { Page } from 'src/const';
+import { Page } from 'src/constants/const';
 
 function Operate({onActiveTabChange}) {
   const [contractVisible, setContractVisible] = useState(false)
