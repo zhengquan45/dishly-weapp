@@ -25,8 +25,14 @@
             font-weight: 500;
             color: #767676;
         }
-        .product-item-price{
+        .product-item-num{
+            font-size: 18px;
+        }
+        .product-item-price-right{
             font-size: 14px;
+            position: absolute;
+            right:10px;
+            top:0;
         }
     }
 }

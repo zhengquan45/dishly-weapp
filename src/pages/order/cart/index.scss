@@ -50,6 +50,9 @@
     background:#fff;
     display: flex;
     flex-direction: column;
+    // transform-origin: bottom; /* 从底部展开或收缩 */
+    // transition: transform 0.3s ease;
+    // transform: (1);
 
     .cart-select-product-header{
         height: 40px;
@@ -66,7 +69,7 @@
         }
         .cart-select-product-clear{
             font-size: 14px;
-            color: #ff0000;
+            color: rgb(194, 194, 194);
             margin-right: 10px;
         }
     }

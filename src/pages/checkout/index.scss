@@ -1,0 +1,53 @@
+.checkout-container{
+    height: 100vh;
+    background: linear-gradient(to bottom, #ff3300, #eeeeee 20%); /* 从上到下渐变 */
+}
+
+.checkout-delivery-container{
+    margin: 0 10px;
+}
+
+.checkout-order-container{
+    margin: 20px 10px 0 10px;
+    background: #fff;
+
+    .checkout-order-items{
+
+        .checkout-order-slide{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size:14px;
+            color: #afafaf;
+            height: 30px;
+        }
+    }
+    .checkout-summary{
+        display: flex;
+        flex-direction: row-reverse;
+        .checkout-summary-total-price{
+            font-size: 14px;
+            font-weight: 500;
+            color: #767676;
+            margin-right: 10px;
+        }
+    }
+}
+
+.checkout-operate-container{
+    position: fixed;
+    bottom: 0;
+    height: 60px;
+    width: calc(100vw - 20px);
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 10px;
+    .checkout-actual-payment{
+        font-size: 14px;
+        font-weight: 500;
+        color: #767676;
+        margin-left: 10px;
+    }
+}

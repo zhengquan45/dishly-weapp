@@ -3,9 +3,10 @@ import './index.scss'
 import { Button, Price } from '@nutui/nutui-react-taro'
 import { useState } from "react";
 import ProductItem from '../product-item';
+import { Page } from 'src/constants/const';
 
 
-function Cart({products, items, plusItem, minusItem, clearItems}) {
+function Cart({onActiveTabChange, products, items, plusItem, minusItem, clearItems}) {
   
   const [ cartSelectProductShow , setCartSelectProductShow ] = useState(false);
   
@@ -56,10 +57,10 @@ function Cart({products, items, plusItem, minusItem, clearItems}) {
           }}>购物车 {items.length} 件</View>
           <View className='cart-product-operate'>
             <Button type="primary" onClick={()=>{
-              console.log('去结算')
+              onActiveTabChange(Page.Checkout)
             }}>去结算</Button>
             <View className='cart-product-price'>合计 
-              <Price price={totalPrice()} size="normal" thousands />
+              <Price style={{color:'#000'}} price={totalPrice()} size="large" thousands />
             </View>
           </View>
         </View>

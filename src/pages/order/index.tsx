@@ -2,13 +2,12 @@
 import './index.scss'
 import { SearchBar, NoticeBar } from '@nutui/nutui-react-taro'
 import { View }from '@tarojs/components'
-import Delivery from './delivery'
+import Delivery from '../../components/delivery'
 import ProductList from './product-list'
 import Cart from './cart'
-import { useState } from "react";
 
 
-function Order() {
+function Order({onActiveTabChange,items,plusItem,minusItem,clearItems}) {
   const categorys = ['午餐','晚餐','热销', '新品', '主食', '小吃', '饮料', '甜品', '水果', '零食', '其他', '全部']
   const noticeList = [
     '加入粉丝群，呼叫客服💁可领取新人券',
@@ -16,8 +15,6 @@ function Order() {
     '珍惜粮食，按需点餐～',
     '当天菜品，现买现做，拒绝预制菜',
   ]
-
-  const [items, setItems] = useState<Item[]>([]);
 
   const products = [
     {
@@ -42,33 +39,6 @@ function Order() {
       img: 'https://img.yzcdn.cn/vant/apple-3.jpg',
     }];
 
-  const plusItem = (id) => {
-    const newItems = [...items];
-    const index = newItems.findIndex((newItem) => newItem.id === id);
-    if (index > -1 && newItems[index].num < 100) {
-      newItems[index].num += 1;
-    } else {
-      newItems.push({ id, num: 1 });
-    }
-    setItems(newItems);
-  }
-
-  const minusItem = (id) => {
-    const newItems = [...items];
-    const index = newItems.findIndex((newItem) => newItem.id === id);
-    if (index > -1 && newItems[index].num > 0) {
-      newItems[index].num -= 1;
-      if(newItems[index].num === 0){
-        newItems.splice(index,1);
-      }
-    }
-    setItems(newItems);
-  }
-
-  const clearItems = () => {
-    setItems([]);
-  }
-
   return (
       <View className='order-container'>
         <SearchBar className='search-container' shape="round" maxLength={5} />
@@ -82,7 +52,12 @@ function Order() {
             />
         <ProductList categorys={categorys} products={products} items={items} plusItem={plusItem} minusItem={minusItem}/>
         <View style={{position:'fixed',bottom:50}}>
-            <Cart products={products} items={items} plusItem={plusItem} minusItem={minusItem} clearItems={clearItems}/>
+            <Cart onActiveTabChange={onActiveTabChange}
+                  products={products} 
+                  items={items} 
+                  plusItem={plusItem} 
+                  minusItem={minusItem} 
+                  clearItems={clearItems}/>
         </View>
       </View>
   )

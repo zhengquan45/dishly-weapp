@@ -4,6 +4,7 @@ export enum Page {
     Cart = 2,
     Profile =3,
     Coupon = 4,
-    Redeem = 5
+    Redeem = 5,
+    Checkout = 6
 }
   

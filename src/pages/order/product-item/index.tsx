@@ -16,14 +16,14 @@ function ProductItem({productItem, itemNum, plusItem, minusItem}) {
                 <View className='product-item-title'>{productItem.name}</View>
                 <View className='product-item-subtitle'>{productItem.subname}</View>
                 <View className='product-item-price'>
-                  <Price price={productItem.price} size="normal" thousands />
+                  <Price style={{color:'#000'}} price={productItem.price} size="normal" thousands />
                 </View>
                 <View style={{position: 'absolute',right:0,bottom: 0,display:'flex',alignItems:'center'}}>
                   <IconFont name={minus} size='20' onClick={()=>{
                       console.log(productItem,'点击了减号')
                       minusItem(productItem.id)
                   }}/>
-                  <span style={{fontSize:20,margin:'0 10px'}}>{itemNum}</span>
+                  <span style={{fontSize:20,margin:'0px 10px 5px 10px'}}>{itemNum}</span>
                   <IconFont name={plus} size='20'  onClick={()=>{
                       console.log(productItem,'点击了加号')
                       plusItem(productItem.id)
