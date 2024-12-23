@@ -11,13 +11,6 @@ import ProductItem from 'src/components/product-item'
 function Checkout({onActiveTabChange, items}) {
   const [expanded, setExpanded] = useState(false);
 
-  const productItem = {
-    id:1,
-    name: '红烧肉',
-    subname: '满12抽行李箱',
-    price: 12,
-    img: 'https://img.yzcdn.cn/vant/apple-1.jpg',
-  }
   const products = [
     {
       id:1,
