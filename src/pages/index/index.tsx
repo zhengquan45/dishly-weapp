@@ -1,8 +1,8 @@
 import { View } from '@tarojs/components'
 import { Tabbar } from '@nutui/nutui-react-taro'
 import Main from '../main'
+import Menu from '../menu'
 import Order from '../order'
-import Cart from '../cart'
 import Profile from '../profile'
 import Coupon from '../coupon'
 import Checkout from '../checkout'
@@ -51,7 +51,7 @@ function Index() {
     return activeTab === Page.Main
       || activeTab === Page.Profile
       || activeTab === Page.Order
-      || activeTab === Page.Cart;
+      || activeTab === Page.Menu;
   }
 
   const tabBarClass = () => {
@@ -62,10 +62,10 @@ function Index() {
     switch (activeTab) {
       case Page.Main:
         return <Main onActiveTabChange={handleActiveTabChange}/>;
+      case Page.Menu:
+        return <Menu onActiveTabChange={handleActiveTabChange} items={items} plusItem={plusItem} minusItem={minusItem} clearItems={clearItems}/>;
       case Page.Order:
-        return <Order onActiveTabChange={handleActiveTabChange} items={items} plusItem={plusItem} minusItem={minusItem} clearItems={clearItems}/>;
-      case Page.Cart:
-        return <Cart/>;
+        return <Order/>;
       case Page.Profile:
         return <Profile/>;
       case Page.Coupon:

@@ -1,0 +1,18 @@
+.menu-container{
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+}
+.search-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60px;
+  background: aliceblue;
+}
+
+.notice-container{
+  height: 40px;
+}
+
