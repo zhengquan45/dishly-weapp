@@ -11,13 +11,13 @@ function Marketing() {
                 onClick={() => {
 
                 }}>
-            邀请有礼
+              邀请有礼
           </View>
           <View className='marketing-operate-item operate-button'
                 onClick={() => {
 
-                }}>
-              进群有礼
+                }}>  
+                <View>进群有礼</View>
           </View>
           <View className='marketing-operate-item operate-button'
                 onClick={() => {
@@ -25,12 +25,12 @@ function Marketing() {
                 }}>
             每日抽奖
           </View>
-          <View className='marketing-operate-item operate-button'
+          {/* <View className='marketing-operate-item operate-button'
                 onClick={() => {
 
                 }}>
             疯狂星期四
-          </View>
+          </View> */}
         </View>
         </>
   )

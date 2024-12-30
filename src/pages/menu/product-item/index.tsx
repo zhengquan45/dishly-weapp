@@ -23,7 +23,7 @@ function ProductItem({productItem, itemNum, plusItem, minusItem}) {
                       console.log(productItem,'点击了减号')
                       minusItem(productItem.id)
                   }}/>
-                  <span style={{fontSize:20,margin:'0px 10px 5px 10px'}}>{itemNum}</span>
+                  <span style={{fontSize:20,margin:'0px 10px'}}>{itemNum}</span>
                   <IconFont name={plus} size='20'  onClick={()=>{
                       console.log(productItem,'点击了加号')
                       plusItem(productItem.id)

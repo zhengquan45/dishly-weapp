@@ -4,6 +4,7 @@ import './index.scss'
 import { useState } from "react";
 import Taro from "@tarojs/taro";
 import { Page } from 'src/constants/const';
+import rice from 'src/assets/images/rice.png'
 
 function Operate({onActiveTabChange}) {
   const [contractVisible, setContractVisible] = useState(false)
@@ -31,16 +32,19 @@ function Operate({onActiveTabChange}) {
         {/* 操作区 */}
         <View className='vip-operate'>
           <View className='vip-operate-order operate-button' onClick={() => {
-            onActiveTabChange(1)
+            onActiveTabChange(Page.Menu)
           }}>
-            点餐
+            <View className='vip-operate-order-image'>
+              <img src={rice}/>
+            </View>
+            <View className='vip-operate-order-text'>预定套餐</View>
           </View>
           <View className='vip-operate-other'>
             <View className='vip-operate-other-item operate-button'
             onClick={() => {
-              onActiveTabChange(Page.Redeem)
+              onActiveTabChange(Page.RedeemMeituan)
             }}>
-              美团核销
+              团购核销
             </View>
             <View className='vip-operate-other-item operate-button'
             onClick={() => {

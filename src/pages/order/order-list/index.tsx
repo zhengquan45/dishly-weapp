@@ -3,6 +3,20 @@ import { View } from '@tarojs/components'
 import { Price, Button} from '@nutui/nutui-react-taro'
 
 function OrderList({orders,hasNextPage}) {
+
+  function LoadMore () {
+    return (
+      <View className='order-list-bottom'>
+        <View className='order-list-bottom-text'>
+        { 
+          hasNextPage?
+          '加载中...':'已经到底了...'
+        } 
+        </View>
+      </View>
+    )
+  }
+
   return (
     <View className='order-list'>
       {
@@ -49,14 +63,7 @@ function OrderList({orders,hasNextPage}) {
                 </View>
             </View>
           }
-          <View className='order-list-bottom'>
-              <View className='order-list-bottom-text'>
-              { 
-                hasNextPage?
-                '加载中...':'已经到底了...'
-              } 
-              </View>
-          </View>
+          <LoadMore/>
       </View>
   
   )

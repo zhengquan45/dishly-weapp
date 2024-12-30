@@ -7,7 +7,7 @@ import Profile from '../profile'
 import Coupon from '../coupon'
 import Checkout from '../checkout'
 import Redeem from '../redeem'
-import { Page } from '../../constants/const'
+import { Page, RedeemPlatform } from '../../constants/const'
 import './index.scss'
 import { useState } from "react";
 
@@ -67,13 +67,15 @@ function Index() {
       case Page.Order:
         return <Order/>;
       case Page.Profile:
-        return <Profile/>;
+        return <Profile onActiveTabChange={handleActiveTabChange}/>;
       case Page.Coupon:
-        return <Coupon/>;
-      case Page.Redeem:
-        return <Redeem/>;
+        return <Coupon onActiveTabChange={handleActiveTabChange}/>;
       case Page.Checkout:
         return <Checkout onActiveTabChange={handleActiveTabChange} items={items}/>;
+      case Page.RedeemMeituan:
+        return <Redeem onActiveTabChange={handleActiveTabChange} redeemPlatform={RedeemPlatform.Meituan}/>;
+      case Page.RedeemDouyin:
+        return <Redeem onActiveTabChange={handleActiveTabChange} redeemPlatform={RedeemPlatform.Douyin}/>;
       default:
         return null;
     }

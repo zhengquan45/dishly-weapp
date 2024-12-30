@@ -1,0 +1,8 @@
+.coupon-container{
+    height: 100%;
+    .coupon-list-container{
+        height: calc(100% - 120px);
+        overflow-y: auto;
+        margin: 10px;
+    }
+}

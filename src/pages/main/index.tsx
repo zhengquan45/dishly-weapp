@@ -8,6 +8,7 @@ import {
 import UserInfo from "./user-info";
 import Operate from './operate';
 import Marketing from './marketing';
+import { View } from '@tarojs/components'
 
 function Main({onActiveTabChange}) {
   
@@ -46,6 +47,7 @@ function Main({onActiveTabChange}) {
         <Operate onActiveTabChange={onActiveTabChange}/>
         <NoticeBar content={mainNoticeText} />
         <Marketing />
+        <View style={{height:'100px'}}></View>
       </>
   )
 }

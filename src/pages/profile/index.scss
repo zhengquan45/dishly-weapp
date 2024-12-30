@@ -1,0 +1,107 @@
+.profile-container{
+    height: 100%;
+    background: aliceblue;
+    position: relative;
+    top: 100px;
+    .profile-header{
+        height: 100px;
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        padding: 0 20px;
+        .profile-header-name{
+            margin-left: 20px;
+            font-size: 20px;
+            font-weight: 500;
+        }
+    }
+
+    .profile-assets{
+        width: calc(100% - 40px);
+        display: flex;
+        flex-direction: row;
+        gap:10px;
+        margin: 0 20px;
+        .profile-assets-item{
+            height: 60px;
+            flex:1;
+            padding:10px 16px;
+            background: #fffcfc;
+            border-radius: 10px;
+            border: #fcf1f1 1px solid;
+            display: flex;
+            
+            .profile-assets-item-body{
+                width: 80px;
+
+                .profile-assets-item-value{
+                    font-size: 20px;
+                    font-weight: 500;
+                }
+                .profile-assets-item-name{
+                    font-size: 16px;
+                    color: #767676;
+                }
+                
+            }
+            .profile-body-item-image{
+                width: 50px;
+                height: 50px;
+                img{
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+        }
+    }
+
+    .profile-service{
+        margin: 20px 10px 10px 10px;
+        height: 200px;
+
+        .profile-service-title{
+            font-size: 20px;
+            font-weight: 500;
+            display: flex;
+            margin-left: 10px;
+        }
+
+        .profile-service-body{
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(70px, 1fr)); /* 自适应列宽 */
+            gap: 10px;
+            .profile-service-item{
+                // flex: 0 0 calc(25% - 30px);
+                padding: 10px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                .profile-service-item-icon{
+                    height: 50px;
+                    width: 50px;
+                    border-radius: 50%;
+                    background: #fffcfc;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    img{
+                        width: 100%;
+                        height: 100%;
+                    }
+                }
+                .profile-service-item-info{
+                    margin-top: 10px;
+                    flex: 1;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    font-size:12px;
+                    text-align: center;
+                    color: #767676  ;
+                }
+                
+            }
+        }
+    }
+}

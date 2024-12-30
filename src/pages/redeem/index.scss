@@ -1,0 +1,44 @@
+.redeem-container{
+    height: 100%;
+    background: linear-gradient(to bottom, #ff3300, #eeeeee 20%); /* 从上到下渐变 */
+
+    .redeem-body{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        .redeem-logo{
+            margin: 20px;
+        }
+        .redeem-title{
+            font-size: 18px;
+            margin: 20px;
+        }
+        .redeem-input{
+            margin: 10px;
+            width: 300px;
+        }
+        .redeem-btn{
+            width: 200px;
+            height: 40px;
+            background: #ff3300;
+            color: #fff;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            margin: 20px;
+        }
+    }
+    
+    .redeem-tip{
+        margin: 20px;
+        .redeem-tip-title{
+            font-size: 20px;
+            font-weight: 500;
+        }
+        .redeem-tip-content{
+            font-size: 16px;
+            color: #767676;
+        }
+    }
+}
