@@ -17,13 +17,15 @@ function Profile({onActiveTabChange}) {
            <View className='profile-header-name'>Zhqqqq</View>
          </View>
          <View className='profile-assets'>
-            <View className='profile-assets-item'>
+            <View className='profile-assets-item' onClick={()=>{
+              onActiveTabChange(Page.Card)
+            }}>
               <View className='profile-assets-item-body'>
                 <View className='profile-assets-item-value'>
-                  200
+                  2
                 </View>
                 <View className='profile-assets-item-name'>
-                  余额
+                  订阅卡
                 </View>
               </View>
               <View className='profile-body-item-image'>
@@ -58,6 +60,15 @@ function Profile({onActiveTabChange}) {
               </View>
               <View className='profile-service-item-info'>
                 我的订单
+              </View>
+            </View>
+            <View className='profile-service-item' onClick={()=>{
+              onActiveTabChange(Page.CardShop)
+            }}>
+              <View className='profile-service-item-icon'>
+              </View>
+              <View className='profile-service-item-info'>
+                购买订阅卡
               </View>
             </View>
             <View className='profile-service-item' onClick={()=>{

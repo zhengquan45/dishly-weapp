@@ -26,10 +26,14 @@ function UserInfo({onActiveTabChange}) {
                     VIP 1
                 </View>
               </View>
-              <View className='vip-user-assert'>
-              <View className='vip-user-assert-num'>0</View>
+              <View className='vip-user-assert' onClick={()=>{
+                onActiveTabChange(Page.Card)
+              }}>
+              <View className='vip-user-assert-num'>5
+                <span>剩余20次</span>
+              </View>
                 <View className='vip-user-assert-text'>
-                  余额
+                  订阅卡
                 </View>
               </View>
               <View className='vip-user-assert' onClick={()=>{

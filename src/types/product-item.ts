@@ -1,5 +1,5 @@
 type ProductItemProps = {
-    name: string;
-    subname: string;
-    price: number;
+    name: string
+    subname: string
+    price: number
 };

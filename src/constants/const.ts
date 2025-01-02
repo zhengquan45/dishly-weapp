@@ -3,10 +3,14 @@ export enum Page {
     Menu = 1,
     Order = 2,
     Profile = 3,
-    Coupon = 4,
-    Checkout = 5,
-    RedeemMeituan = 6,
-    RedeemDouyin = 7,
+    Card = 4,
+    CardShop = 5,
+    CardOrder = 6,
+    CardUseRecord = 7,
+    Coupon = 8,
+    Checkout = 9,
+    RedeemMeituan = 10,
+    RedeemDouyin = 11,
 }
  
 export enum RedeemPlatform {

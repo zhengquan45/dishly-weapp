@@ -8,7 +8,7 @@ import Cart from './cart'
 
 
 function Menu({onActiveTabChange,items,plusItem,minusItem,clearItems}) {
-  const categorys = ['午餐','晚餐','热销', '新品', '主食', '小吃', '饮料', '甜品', '水果', '零食', '其他', '全部']
+  const categorys = ['午餐','晚餐','热销']
   const noticeList = [
     '加入粉丝群，呼叫客服💁可领取新人券',
     '在忙也要记得按时吃饭哦🍚',

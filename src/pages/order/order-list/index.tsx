@@ -1,21 +1,11 @@
 import './index.scss'
 import { View } from '@tarojs/components'
 import { Price, Button} from '@nutui/nutui-react-taro'
+import LoadMore from 'src/components/load-more'
+import Empty from 'src/components/empty'
 
 function OrderList({orders,hasNextPage}) {
 
-  function LoadMore () {
-    return (
-      <View className='order-list-bottom'>
-        <View className='order-list-bottom-text'>
-        { 
-          hasNextPage?
-          '加载中...':'已经到底了...'
-        } 
-        </View>
-      </View>
-    )
-  }
 
   return (
     <View className='order-list'>
@@ -57,13 +47,9 @@ function OrderList({orders,hasNextPage}) {
               </View>
             ))
             :
-            <View className='order-empty'>
-                <View className='order-empty-text'>
-                  您没有相关订单～
-                </View>
-            </View>
+            <Empty children='您没有相关订单～'/>
           }
-          <LoadMore/>
+          <LoadMore hasNextPage={hasNextPage}/>
       </View>
   
   )

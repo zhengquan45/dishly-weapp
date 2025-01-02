@@ -1,0 +1,56 @@
+.card-shop-container{
+        margin: 5px 10px;
+        width:calc(100% - 20px);
+        .card-shop-header{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            margin: 10px 0;
+            .card-shop-title-box{
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                .card-shop-header-title{
+                    font-size: 20px;
+                    font-weight: bold;
+                }
+                
+                .card-shop-header-subtitle{
+                    font-size: 14px;
+                    color: #767676;
+                    margin-left: 5px;
+                }
+            }
+            .card-shop-header-more{
+                font-size: 12px;
+                color: #767676;
+                display: flex;
+                align-items: center;
+            }
+        }
+        .card-shop-body{
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); /* 自适应列宽 */
+            gap: 10px;
+           
+        }
+    }
+
+    .card-shop-operate{
+        position: fixed;
+        bottom: 0;
+        height: 60px;
+        width: calc(100vw - 20px);
+        background: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 10px;
+        .card-shop-payment{
+            font-size: 14px;
+            font-weight: 500;
+            color: #767676;
+            margin-left: 10px;
+        }
+    }

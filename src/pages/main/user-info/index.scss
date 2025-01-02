@@ -57,6 +57,18 @@ $user-info-bottom-color: #fdf4f8;
       flex-direction: column;
       align-items: center;
       justify-content: center;
+      .vip-user-assert-num{
+        span{
+          position:absolute;
+          font-size: 10px;
+          font-weight: bold;
+          background: #c590fb;
+          border-radius: 8px;
+          height: 16px;
+          width: 50px;
+          text-align: center;
+        }
+      }
     }
 
     .vip-user-assert-text{

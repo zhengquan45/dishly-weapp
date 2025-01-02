@@ -1,0 +1,60 @@
+.card-container{
+    background: linear-gradient(to bottom, #ff3300, aliceblue 20%); /* 从上到下渐变 */
+    .card-info-container{
+        width: 100%;
+        height: 100%;
+        background: #fff;
+        display: flex;
+        border-radius: 8px;
+        margin: 5px 10px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* 阴影 */
+        width:calc(100% - 50px);
+        flex-direction: column;
+        padding: 15px;
+        background: #f2585868;
+        border: #fff .1px solid;
+        position: relative;
+        .card-info-status{
+            height: 30px;
+        }
+        .card-info-body{
+            display: flex;
+            flex: 1;
+            flex-direction: row;
+            justify-content: space-between;
+            .card-info-body-text{
+                color: #ff0000;
+                span{
+                    font-size: 40px;
+                }
+            }
+            .card-info-body-operate{
+                display: flex;
+                align-items: center;
+            }
+        }
+        .card-info-tag{
+            position: absolute;
+            top:0;
+            right:0;
+            border-radius: 0 8px;
+            background: #f9f9f9;
+            color: #ff0000;
+            font-size: 12px;
+            height: 30px;
+            padding: 0 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+
+    .card-list-container{
+        margin: 10px;
+        .card-list-title{
+            font-size: 20px;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+    }
+}

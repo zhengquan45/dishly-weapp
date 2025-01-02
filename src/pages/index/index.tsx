@@ -7,6 +7,10 @@ import Profile from '../profile'
 import Coupon from '../coupon'
 import Checkout from '../checkout'
 import Redeem from '../redeem'
+import Card from '../card'
+import CardOrder from '../card-order'
+import CardUseRecord from '../card-use-record'
+import CardShop from '../card-shop'
 import { Page, RedeemPlatform } from '../../constants/const'
 import './index.scss'
 import { useState } from "react";
@@ -46,6 +50,7 @@ function Index() {
   function handleActiveTabChange(activeTab: number) {
     setActiveTab(activeTab);
   }
+  
 
   const hiddenTabbar = () => {
     return activeTab === Page.Main
@@ -68,6 +73,8 @@ function Index() {
         return <Order/>;
       case Page.Profile:
         return <Profile onActiveTabChange={handleActiveTabChange}/>;
+      case Page.Card:
+        return <Card onActiveTabChange={handleActiveTabChange}/>;  
       case Page.Coupon:
         return <Coupon onActiveTabChange={handleActiveTabChange}/>;
       case Page.Checkout:
@@ -76,6 +83,12 @@ function Index() {
         return <Redeem onActiveTabChange={handleActiveTabChange} redeemPlatform={RedeemPlatform.Meituan}/>;
       case Page.RedeemDouyin:
         return <Redeem onActiveTabChange={handleActiveTabChange} redeemPlatform={RedeemPlatform.Douyin}/>;
+      case Page.CardOrder:
+        return <CardOrder onActiveTabChange={handleActiveTabChange}/>;
+      case Page.CardUseRecord:
+        return <CardUseRecord onActiveTabChange={handleActiveTabChange}/>;
+      case Page.CardShop:
+        return <CardShop onActiveTabChange={handleActiveTabChange}/>;  
       default:
         return null;
     }

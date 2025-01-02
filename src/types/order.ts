@@ -1,4 +1,4 @@
 type Item = {
-    id: number;
+    id: number
     num: number;
 };

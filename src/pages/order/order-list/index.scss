@@ -64,27 +64,3 @@
     }
 }
 
-.order-empty{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: calc(100vh - 50px);
-
-    .order-empty-text{
-        font-size: 16px;
-        color: #afafaf;
-    }
-}
-
-.order-list-bottom{
-    height: 80px;
-
-    .order-list-bottom-text{
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color:#afafaf;
-        font-size: 14px;
-    }
-}
