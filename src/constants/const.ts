@@ -9,8 +9,7 @@ export enum Page {
     CardUseRecord = 7,
     Coupon = 8,
     Checkout = 9,
-    RedeemMeituan = 10,
-    RedeemDouyin = 11,
+    Redeem = 10,
 }
  
 export enum RedeemPlatform {

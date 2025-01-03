@@ -1,13 +1,15 @@
 import { View } from '@tarojs/components'
 import { Page } from '../../constants/const'
 import { NavBar, Button, Input, Avatar } from '@nutui/nutui-react-taro'
-import { ArrowLeft } from '@nutui/icons-react-taro'
+import { ArrowLeft, ArrowTransfer } from '@nutui/icons-react-taro'
 import './index.scss'
 import { RedeemPlatform } from '../../constants/const'
 import { useState } from 'react'
-function Redeem({onActiveTabChange,redeemPlatform = RedeemPlatform.Meituan}) {
+import meituan from '@/assets/images/meituan.png'
+import douyin from '@/assets/images/douyin.png'
+function Redeem({onActiveTabChange,redeemPlatform=RedeemPlatform.Meituan}) {
   const [redeemCode, setRedeemCode] = useState('');
-
+  const [platform, setPlatform] = useState(redeemPlatform);
   return (
       <View className='redeem-container'> 
          <NavBar style={{background: 'transparent',height: '60px',color: '#fff'}}
@@ -23,24 +25,16 @@ function Redeem({onActiveTabChange,redeemPlatform = RedeemPlatform.Meituan}) {
           </NavBar>
           <View className='redeem-body'>
               <View className='redeem-logo'>
-                {
-                  redeemPlatform === RedeemPlatform.Meituan ?
-                  (
                   <Avatar.Group max="3" level="right" size="large">
-                    <Avatar src="https://img12.360buyimg.com/imagetools/jfs/t1/196430/38/8105/14329/60c806a4Ed506298a/e6de9fb7b8490f38.png" />
-                    <Avatar src="https://img12.360buyimg.com/imagetools/jfs/t1/196430/38/8105/14329/60c806a4Ed506298a/e6de9fb7b8490f38.png" />
+                    <Avatar src={platform === RedeemPlatform.Meituan ? meituan :douyin} />
                   </Avatar.Group>
-                  )
-                  :
-                  (
-                  <Avatar.Group max="3" level="right" size="large">
-                    <Avatar src="https://img12.360buyimg.com/imagetools/jfs/t1/196430/38/8105/14329/60c806a4Ed506298a/e6de9fb7b8490f38.png" />
-                  </Avatar.Group>
-                  )
-                }
-             
+                  <View className='redeem-transfer'>
+                    <ArrowTransfer onClick={()=>{
+                      setPlatform(platform === RedeemPlatform.Meituan ? RedeemPlatform.Douyin : RedeemPlatform.Meituan)
+                    }}/>
+                  </View> 
               </View>
-              <View className='redeem-title'>平台团购套餐自助验券</View>
+              <View className='redeem-title'>{platform === RedeemPlatform.Meituan?'美团':'抖音'}团购套餐自助验券</View>
               <Input className='redeem-input'
                           placeholder="输入卡券兑换码"
                           maxLength={16}

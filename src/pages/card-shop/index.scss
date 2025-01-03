@@ -1,4 +1,8 @@
 .card-shop-container{
+    height: 100vh;
+    background: linear-gradient(to bottom, #ff3300, aliceblue 20%); /* 从上到下渐变 */
+
+    .card-shop-body{
         margin: 5px 10px;
         width:calc(100% - 20px);
         .card-shop-header{
@@ -54,3 +58,4 @@
             margin-left: 10px;
         }
     }
+}

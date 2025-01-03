@@ -1,11 +1,13 @@
 import { View } from '@tarojs/components'
-import { Avatar } from '@nutui/nutui-react-taro'
+import { Avatar, NoticeBar} from '@nutui/nutui-react-taro'
 import './index.scss'
 import { Page } from 'src/constants/const'
 
 
 function UserInfo({onActiveTabChange}) {
   
+  const mainNoticeText = '被食物治愈的一天!!'
+
   return (
         <>
         {/* 用户信息区 */}
@@ -46,8 +48,10 @@ function UserInfo({onActiveTabChange}) {
               </View>
             </View>
           </View>
+         
           <View className='vip-info-bottom'>
-            <View className='vip-info-bottom-title'>
+            <NoticeBar content={mainNoticeText} />
+            {/* <View className='vip-info-bottom-title'>
               会员特权
             </View>
             <View className='vip-info-bottom-subtitle'>
@@ -55,7 +59,7 @@ function UserInfo({onActiveTabChange}) {
             </View>
             <View className='vip-info-bottom-arrow'>
               ➡️
-            </View>
+            </View> */}
           </View>
         </View>
         </>

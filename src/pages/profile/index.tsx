@@ -1,8 +1,14 @@
 import { View } from '@tarojs/components'
 import { Avatar } from '@nutui/nutui-react-taro'
 import './index.scss'
-import coupon from '@assets/images/coupon.png'
-import cash from '@assets/images/cash.png'
+import coupon from '@assets/images/discount-voucher.png'
+import cardWallet from '@assets/images/wallet.png'
+import customerService from '@assets/images/customer-service.png'
+import credit from '@assets/images/credit-card.png'
+import order from '@assets/images/receipt.png'
+import scanner from '@assets/images/scanner.png'
+import we from '@assets/images/worldwide.png'
+import christmasDecoration from '@assets/images/christmas-decoration.png'
 import { Page } from '../../constants/const'
 function Profile({onActiveTabChange}) {
   return (
@@ -29,7 +35,7 @@ function Profile({onActiveTabChange}) {
                 </View>
               </View>
               <View className='profile-body-item-image'>
-                <img src={cash}/>
+                <img src={cardWallet}/>
               </View>
             </View>
             <View className='profile-assets-item' onClick={()=>{
@@ -57,6 +63,7 @@ function Profile({onActiveTabChange}) {
               onActiveTabChange(Page.Order)
             }}>
               <View className='profile-service-item-icon'>
+                <img src={order}/>
               </View>
               <View className='profile-service-item-info'>
                 我的订单
@@ -66,31 +73,25 @@ function Profile({onActiveTabChange}) {
               onActiveTabChange(Page.CardShop)
             }}>
               <View className='profile-service-item-icon'>
+                <img src={credit}/>
               </View>
               <View className='profile-service-item-info'>
                 购买订阅卡
               </View>
             </View>
             <View className='profile-service-item' onClick={()=>{
-              onActiveTabChange(Page.RedeemMeituan)
+              onActiveTabChange(Page.Redeem)
             }}>
               <View className='profile-service-item-icon'>
+                <img src={scanner}/>
               </View>
               <View className='profile-service-item-info'>
-                美团兑换
-              </View>
-            </View>
-            <View className='profile-service-item' onClick={()=>{
-              onActiveTabChange(Page.RedeemDouyin)
-            }}>
-              <View className='profile-service-item-icon'>
-              </View>
-              <View className='profile-service-item-info'>
-                抖音兑换
+                团购兑换
               </View>
             </View>
             <View className='profile-service-item'>
               <View className='profile-service-item-icon'>
+              <img src={christmasDecoration}/>
               </View>
               <View className='profile-service-item-info'>
                 福利群
@@ -98,7 +99,7 @@ function Profile({onActiveTabChange}) {
             </View>
             <View className='profile-service-item'>
               <View className='profile-service-item-icon'>
-                
+                <img src={customerService}/>
               </View>
               <View className='profile-service-item-info'>
                 问题反馈
@@ -106,6 +107,7 @@ function Profile({onActiveTabChange}) {
             </View>
             <View className='profile-service-item'>
               <View className='profile-service-item-icon'>
+                <img src={we}/>
               </View>
               <View className='profile-service-item-info'>
                 关于我们

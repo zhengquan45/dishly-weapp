@@ -4,7 +4,10 @@ import './index.scss'
 import { useState } from "react";
 import Taro from "@tarojs/taro";
 import { Page } from 'src/constants/const';
-import rice from 'src/assets/images/rice.png'
+import sukiyaki from 'src/assets/images/sukiyaki.png'
+import qrCode from '@/assets/images/qr-code.png'
+import customerService from '@/assets/images/customer-service.png'
+
 
 function Operate({onActiveTabChange}) {
   const [contractVisible, setContractVisible] = useState(false)
@@ -35,21 +38,27 @@ function Operate({onActiveTabChange}) {
             onActiveTabChange(Page.Menu)
           }}>
             <View className='vip-operate-order-image'>
-              <img src={rice}/>
+              <img src={sukiyaki}/>
             </View>
             <View className='vip-operate-order-text'>预定套餐</View>
           </View>
           <View className='vip-operate-other'>
             <View className='vip-operate-other-item operate-button'
             onClick={() => {
-              onActiveTabChange(Page.RedeemMeituan)
+              onActiveTabChange(Page.Redeem)
             }}>
+              <View className='vip-operate-other-item-image'>
+                <img src={qrCode}/>
+              </View>
               团购核销
             </View>
             <View className='vip-operate-other-item operate-button'
             onClick={() => {
               setContractVisible(true)
             }}>
+               <View className='vip-operate-other-item-image'>
+                <img src={customerService}/>
+              </View>
               联系商家
             </View>
           </View>

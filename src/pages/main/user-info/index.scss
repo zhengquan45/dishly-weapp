@@ -82,10 +82,10 @@ $user-info-bottom-color: #fdf4f8;
     display: flex;
     align-items: center;
     height: 40px;
-    background: $user-info-bottom-color;
+    // background: $user-info-bottom-color;
     border-radius: 0 0 8px 8px; /* 圆角 */
     margin: 2px;
-    padding: 0 20px;
+    // padding: 0 20px;
 
     .vip-info-bottom-title {
       background-clip: text;

@@ -1,5 +1,5 @@
 .redeem-container{
-    height: 100%;
+    height: 100vh;
     background: linear-gradient(to bottom, #ff3300, aliceblue 20%); /* 从上到下渐变 */
 
     .redeem-body{
@@ -9,6 +9,12 @@
         justify-content: center;
         .redeem-logo{
             margin: 20px;
+            position: relative;
+            .redeem-transfer{
+                position:absolute;
+                bottom: 0;
+                right: 0;
+            }
         }
         .redeem-title{
             font-size: 18px;

@@ -45,7 +45,6 @@ function Main({onActiveTabChange}) {
         </Swiper>
         <UserInfo onActiveTabChange={onActiveTabChange}/>
         <Operate onActiveTabChange={onActiveTabChange}/>
-        <NoticeBar content={mainNoticeText} />
         <Marketing />
         <View style={{height:'100px'}}></View>
       </>

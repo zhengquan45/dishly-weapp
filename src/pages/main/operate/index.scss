@@ -34,11 +34,23 @@
   flex-direction: column;
   margin: 5px 0;
   gap: 10px;
+  font-size: 16px;
+  .vip-operate-other-item{
+    flex: 1;
+    .vip-operate-other-item-image{
+      margin-right: 10px;
+      width: 40px;
+      height: 40px;
+      img{
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+  
 }
 
-.vip-operate-other-item{
-  flex: 1;
-}
+
 
 .operate-button{
   background-color: #fff; /* 白色背景 */

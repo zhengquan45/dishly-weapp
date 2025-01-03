@@ -49,7 +49,7 @@ function Card({onActiveTabChange}) {
 
   return (
       <>
-        <View>
+        <View className='card-shop-container'>
           <NavBar style={{background: 'transparent',height: '60px',color: '#fff', marginBottom: '0'}}
             titleAlign="center"
             back={
@@ -62,7 +62,7 @@ function Card({onActiveTabChange}) {
           <span style={{color: '#fff'}}>订阅卡商城</span>
           </NavBar>
           <Barrage/>
-          <View className='card-shop-container'>
+          <View className='card-shop-body'>
             <View className='card-shop-header'>
               <View className='card-shop-title-box'>
                 <View className='card-shop-header-title'>订阅卡</View>

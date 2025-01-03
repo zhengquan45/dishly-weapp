@@ -79,10 +79,8 @@ function Index() {
         return <Coupon onActiveTabChange={handleActiveTabChange}/>;
       case Page.Checkout:
         return <Checkout onActiveTabChange={handleActiveTabChange} items={items}/>;
-      case Page.RedeemMeituan:
-        return <Redeem onActiveTabChange={handleActiveTabChange} redeemPlatform={RedeemPlatform.Meituan}/>;
-      case Page.RedeemDouyin:
-        return <Redeem onActiveTabChange={handleActiveTabChange} redeemPlatform={RedeemPlatform.Douyin}/>;
+      case Page.Redeem:
+        return <Redeem onActiveTabChange={handleActiveTabChange} />;
       case Page.CardOrder:
         return <CardOrder onActiveTabChange={handleActiveTabChange}/>;
       case Page.CardUseRecord:
