@@ -5,11 +5,24 @@ import { useState } from "react";
 import ProductItem from '../product-item';
 import { Page } from 'src/constants/const';
 
+import { useSelector, useDispatch } from "react-redux";
+import { clearItems } from "src/actions/items";
 
-function Cart({onActiveTabChange, products, items, plusItem, minusItem, clearItems}) {
+interface RootState {
+  items: Item[];
+}
+
+function Cart({onActiveTabChange, products}) {
   
   const [ cartSelectProductShow , setCartSelectProductShow ] = useState(false);
   
+  const items = useSelector((state: RootState) => state.items); // 获取 items 状态
+
+  const dispatch = useDispatch();
+
+  const clearAllItems = () => {
+    dispatch(clearItems());
+  };
 
   const cartContainerClass = () => {
     return `cart-container ${items.length > 0 ? '' : 'cart-container-hidden'}`
@@ -43,11 +56,11 @@ function Cart({onActiveTabChange, products, items, plusItem, minusItem, clearIte
         <View className={cartSelectProductContainerClass()}>
             <View className='cart-select-product-header'>
               <View className='cart-select-product-title'>已选商品</View>
-              <View className='cart-select-product-clear' onClick={clearItems}>清空</View>
+              <View className='cart-select-product-clear' onClick={clearAllItems}>清空</View>
             </View>
             <View className='cart-select-product-body'>
               {items.map((item,index)=>(
-                <ProductItem key={index} productItem={getProduct(item.id)} itemNum={item.num} plusItem={plusItem} minusItem={minusItem}/>
+                <ProductItem key={index} productItem={getProduct(item.id)} itemNum={item.num} />
               ))}
             </View>
         </View>

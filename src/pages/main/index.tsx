@@ -1,5 +1,5 @@
 import './index.scss'
-import {Swiper, NoticeBar} from '@nutui/nutui-react-taro'
+import {Swiper} from '@nutui/nutui-react-taro'
 import {
   CommonEventFunction,
   SwiperProps as TaroSwiperProps,

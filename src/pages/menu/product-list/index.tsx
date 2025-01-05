@@ -3,15 +3,19 @@ import { View }from '@tarojs/components'
 import './index.scss'
 import SplitOrder from './split-order'
 import ProductItem from '../product-item'
+import { useSelector } from "react-redux";
 
+interface RootState {
+  items: Item[];
+}
 
-
-function ProductList({categorys, products, items, plusItem, minusItem}) {
+function ProductList({categorys, products}) {
   const [categoryIndex, setCategoryIndex] = useState(0);
 
   const productCategoryItemClass = (index) => {
     return `product-category-item ${categoryIndex === index ? 'product-category-item-active' : ''}`
   }
+  const items = useSelector((state: RootState) => state.items); // 获取 items 状态
 
   const getItemsNum = (id) => {
     const item = items.find((item) => item.id === id);
@@ -37,7 +41,7 @@ function ProductList({categorys, products, items, plusItem, minusItem}) {
             <View className='product-item-list-body'>
             {categoryIndex == 0? <SplitOrder/>:''}
             {products.map((product, index) => (
-                <ProductItem key={index} productItem={product} itemNum={getItemsNum(product.id)} plusItem={plusItem} minusItem={minusItem}/>
+                <ProductItem key={index} productItem={product} itemNum={getItemsNum(product.id)}/>
             ))}
             </View>
           </View>

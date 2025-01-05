@@ -7,9 +7,15 @@ import { View } from '@tarojs/components'
 import Delivery from '../../components/delivery'
 import ProductItem from 'src/components/product-item'
 
+import { useSelector } from "react-redux";
 
-function Checkout({onActiveTabChange, items}) {
+interface RootState {
+  items: Item[];
+}
+
+function Checkout({onActiveTabChange}) {
   const [expanded, setExpanded] = useState(false);
+  const items = useSelector((state: RootState) => state.items); // 获取 items 状态
 
   const products = [
     {

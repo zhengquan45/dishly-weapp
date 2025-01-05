@@ -18,33 +18,34 @@ import { useState } from "react";
 
 function Index() {
   const [activeTab, setActiveTab] = useState(0);
-  const [items, setItems] = useState<Item[]>([]);
-  const plusItem = (id) => {
-    const newItems = [...items];
-    const index = newItems.findIndex((newItem) => newItem.id === id);
-    if (index > -1 && newItems[index].num < 100) {
-      newItems[index].num += 1;
-    } else {
-      newItems.push({ id, num: 1 });
-    }
-    setItems(newItems);
-  }
 
-  const minusItem = (id) => {
-    const newItems = [...items];
-    const index = newItems.findIndex((newItem) => newItem.id === id);
-    if (index > -1 && newItems[index].num > 0) {
-      newItems[index].num -= 1;
-      if(newItems[index].num === 0){
-        newItems.splice(index,1);
-      }
-    }
-    setItems(newItems);
-  }
+  // const [items, setItems] = useState<Item[]>([]);
+  // const plusItem = (id) => {
+  //   const newItems = [...items];
+  //   const index = newItems.findIndex((newItem) => newItem.id === id);
+  //   if (index > -1 && newItems[index].num < 100) {
+  //     newItems[index].num += 1;
+  //   } else {
+  //     newItems.push({ id, num: 1 });
+  //   }
+  //   setItems(newItems);
+  // }
 
-  const clearItems = () => {
-    setItems([]);
-  }
+  // const minusItem = (id) => {
+  //   const newItems = [...items];
+  //   const index = newItems.findIndex((newItem) => newItem.id === id);
+  //   if (index > -1 && newItems[index].num > 0) {
+  //     newItems[index].num -= 1;
+  //     if(newItems[index].num === 0){
+  //       newItems.splice(index,1);
+  //     }
+  //   }
+  //   setItems(newItems);
+  // }
+
+  // const clearItems = () => {
+  //   setItems([]);
+  // }
 
 
   function handleActiveTabChange(activeTab: number) {
@@ -68,7 +69,7 @@ function Index() {
       case Page.Main:
         return <Main onActiveTabChange={handleActiveTabChange}/>;
       case Page.Menu:
-        return <Menu onActiveTabChange={handleActiveTabChange} items={items} plusItem={plusItem} minusItem={minusItem} clearItems={clearItems}/>;
+        return <Menu onActiveTabChange={handleActiveTabChange}/>;
       case Page.Order:
         return <Order/>;
       case Page.Profile:
@@ -78,7 +79,7 @@ function Index() {
       case Page.Coupon:
         return <Coupon onActiveTabChange={handleActiveTabChange}/>;
       case Page.Checkout:
-        return <Checkout onActiveTabChange={handleActiveTabChange} items={items}/>;
+        return <Checkout onActiveTabChange={handleActiveTabChange}/>;
       case Page.Redeem:
         return <Redeem onActiveTabChange={handleActiveTabChange} />;
       case Page.CardOrder:

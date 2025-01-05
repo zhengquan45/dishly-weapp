@@ -1,6 +1,6 @@
 import './index.scss'
 import { View } from '@tarojs/components'
-import { Page } from '../../constants/const'
+import { Page } from 'src/constants/const'
 import { NavBar } from '@nutui/nutui-react-taro'
 import { ArrowLeft } from '@nutui/icons-react-taro'
 import TarBar from 'src/components/tarbar'

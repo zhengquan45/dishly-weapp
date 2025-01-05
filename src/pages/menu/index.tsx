@@ -7,7 +7,7 @@ import ProductList from './product-list'
 import Cart from './cart'
 
 
-function Menu({onActiveTabChange,items,plusItem,minusItem,clearItems}) {
+function Menu({onActiveTabChange}) {
   const categorys = ['午餐','晚餐','热销']
   const noticeList = [
     '加入粉丝群，呼叫客服💁可领取新人券',
@@ -50,14 +50,10 @@ function Menu({onActiveTabChange,items,plusItem,minusItem,clearItems}) {
               speed={10}
               duration={2000}
             />
-        <ProductList categorys={categorys} products={products} items={items} plusItem={plusItem} minusItem={minusItem}/>
+        <ProductList categorys={categorys} products={products}/>
         <View style={{position:'fixed',bottom:50}}>
             <Cart onActiveTabChange={onActiveTabChange}
-                  products={products} 
-                  items={items} 
-                  plusItem={plusItem} 
-                  minusItem={minusItem} 
-                  clearItems={clearItems}/>
+                  products={products}/>
         </View>
       </View>
   )
