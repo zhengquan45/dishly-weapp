@@ -8,12 +8,13 @@ import Delivery from '../../components/delivery'
 import ProductItem from 'src/components/product-item'
 
 import { useSelector } from "react-redux";
+import Taro from '@tarojs/taro'
 
 interface RootState {
   items: Item[];
 }
 
-function Checkout({onActiveTabChange}) {
+function Checkout() {
   const [expanded, setExpanded] = useState(false);
   const items = useSelector((state: RootState) => state.items); // 获取 items 状态
 
@@ -50,14 +51,14 @@ function Checkout({onActiveTabChange}) {
     return product;
   }  
 
-  const totalPrice = () => {
-    return items.reduce((total, item) => {
-      const product = getProduct(item.id);
-      if(product){
-        return total + product.price * item.num;
-      }
-    }, 0);
-  }
+  const totalPrice = items.reduce((total, item) => {
+    const product = getProduct(item.id);
+    if(product){
+      return total + product.price * item.num;
+    }
+    return total;
+  }, 0);
+
 
   return (
       <>
@@ -69,7 +70,9 @@ function Checkout({onActiveTabChange}) {
                 <ArrowLeft size={14} />
               </>
             }
-            onBackClick={() => onActiveTabChange(Page.Order)}
+            onBackClick={() => 
+              Taro.navigateBack()
+            }
           >
           <span style={{color: '#fff'}}>订单结算</span>
           </NavBar>
@@ -102,13 +105,13 @@ function Checkout({onActiveTabChange}) {
             <Divider style={{ borderStyle: 'dashed' }}/>
             <View className='checkout-summary'>
               <View className='checkout-summary-total-price'>共 { totalNum } 件，合计 
-                <Price style={{color:'#000'}}price={totalPrice()} size="large" thousands />
+                <Price style={{color:'#000'}}price={totalPrice} size="large" thousands />
               </View>
             </View> 
           </View>
           <View className='checkout-operate-container'>
             <View className='checkout-actual-payment'>
-              实付: <Price style={{color:'#000'}} price={totalPrice()} size="large" thousands />
+              实付: <Price style={{color:'#000'}} price={totalPrice} size="large" thousands />
             </View>
             <Button type="primary" onClick={()=>{
               console.log('确认支付')

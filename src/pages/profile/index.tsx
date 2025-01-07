@@ -9,13 +9,23 @@ import order from '@assets/images/receipt.png'
 import scanner from '@assets/images/scanner.png'
 import we from '@assets/images/worldwide.png'
 import christmasDecoration from '@assets/images/christmas-decoration.png'
-import { Page } from '../../constants/const'
-function Profile({onActiveTabChange}) {
+import CustomTabbar from 'src/components/custom-tab-bar';
+import Taro from '@tarojs/taro';
+import { setActiveTab } from 'src/actions/active-tab';
+import { useDispatch } from 'react-redux';
+import { Page } from 'src/constants/const';
+
+function Profile() {
+
+  const dispatch = useDispatch();
   return (
       <View className='profile-container'>
+         <View className='profile-header-empty-space'></View>
          <View className='profile-header'>
           <View className='profile-header-avatar' onClick={()=>{
-            onActiveTabChange(Page.ProfileEdit)
+            Taro.navigateTo({
+              url: `/pages/profile-edit/index`
+            })  
           }}>
               <Avatar
                 size="large"
@@ -26,7 +36,9 @@ function Profile({onActiveTabChange}) {
          </View>
          <View className='profile-assets'>
             <View className='profile-assets-item' onClick={()=>{
-              onActiveTabChange(Page.Card)
+              Taro.navigateTo({
+                url: `/pages/card/index`
+              })
             }}>
               <View className='profile-assets-item-body'>
                 <View className='profile-assets-item-value'>
@@ -41,7 +53,9 @@ function Profile({onActiveTabChange}) {
               </View>
             </View>
             <View className='profile-assets-item' onClick={()=>{
-              onActiveTabChange(Page.Coupon)
+               Taro.navigateTo({
+                url: `/pages/coupon/index`
+              })
             }}>
               <View className='profile-assets-item-body'>
                 <View className='profile-assets-item-value'>
@@ -62,7 +76,9 @@ function Profile({onActiveTabChange}) {
             </View>
             <View className='profile-service-body'>
             <View className='profile-service-item' onClick={()=>{
-              onActiveTabChange(Page.Order)
+               Taro.navigateTo({
+                url: `/pages/index/index?acticeTab=${Page.Order}`
+              })
             }}>
               <View className='profile-service-item-icon'>
                 <img src={order}/>
@@ -72,7 +88,9 @@ function Profile({onActiveTabChange}) {
               </View>
             </View>
             <View className='profile-service-item' onClick={()=>{
-              onActiveTabChange(Page.CardShop)
+               Taro.navigateTo({
+                url: `/pages/card-shop/index`
+              })
             }}>
               <View className='profile-service-item-icon'>
                 <img src={credit}/>
@@ -82,7 +100,9 @@ function Profile({onActiveTabChange}) {
               </View>
             </View>
             <View className='profile-service-item' onClick={()=>{
-              onActiveTabChange(Page.Redeem)
+               Taro.navigateTo({
+                url: `/pages/redeem/index`
+              })
             }}>
               <View className='profile-service-item-icon'>
                 <img src={scanner}/>

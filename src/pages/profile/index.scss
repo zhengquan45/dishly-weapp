@@ -1,10 +1,13 @@
 .profile-container{
-    height: calc(100vh - 100px);
+    height: 100vh;
     background: aliceblue;
     position: relative;
-    top: 100px;
+    .profile-header-empty-space{
+        height: 120px;
+        width:100vw;
+    }
     .profile-header{
-        height: 100px;
+        height: 90px;
         width: 100%;
         display: flex;
         flex-direction: row;

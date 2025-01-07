@@ -7,7 +7,8 @@ import { RedeemPlatform } from '../../constants/const'
 import { useState } from 'react'
 import meituan from '@/assets/images/meituan.png'
 import douyin from '@/assets/images/douyin.png'
-function Redeem({onActiveTabChange,redeemPlatform=RedeemPlatform.Meituan}) {
+import Taro from '@tarojs/taro'
+function Redeem({redeemPlatform=RedeemPlatform.Meituan}) {
   const [redeemCode, setRedeemCode] = useState('');
   const [platform, setPlatform] = useState(redeemPlatform);
   return (
@@ -19,14 +20,16 @@ function Redeem({onActiveTabChange,redeemPlatform=RedeemPlatform.Meituan}) {
                 <ArrowLeft size={14} />
               </>
             }
-            onBackClick={() => onActiveTabChange(Page.Main)}
+            onBackClick={() =>{
+              Taro.navigateBack()
+            }}
           >
           <span style={{color: '#fff'}}>团购核销</span>
           </NavBar>
           <View className='redeem-body'>
               <View className='redeem-logo'>
                   <Avatar.Group max="3" level="right" size="large">
-                    <Avatar src={platform === RedeemPlatform.Meituan ? meituan :douyin} />
+                    <Avatar size="120" src={platform === RedeemPlatform.Meituan ? meituan :douyin} />
                   </Avatar.Group>
                   <View className='redeem-transfer'>
                     <ArrowTransfer onClick={()=>{

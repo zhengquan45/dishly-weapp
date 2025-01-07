@@ -1,9 +1,9 @@
-.tabbar-container{
+.tabs-container{
     display: flex;
     align-items: center;
     background: #fff;
 
-    .tabbar-item{
+    .tabs-item{
         height: 60px;
         flex: 1;
         display: flex;
@@ -14,11 +14,11 @@
         color: #767676;
     }
 
-    .tabbar-item-active{
+    .tabs-item-active{
         color: #000;
     }
 
-    .tabbar-item-active::after{
+    .tabs-item-active::after{
         content: '';
         display: block;
         width: 30px;
@@ -28,9 +28,4 @@
         position: absolute;
         bottom: 0;
     }
-}
-
-.order-container{
-    height: 100%;
-    width: 100%;
 }

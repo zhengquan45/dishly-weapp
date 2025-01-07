@@ -9,7 +9,7 @@ import qrCode from '@/assets/images/qr-code.png'
 import customerService from '@/assets/images/customer-service.png'
 
 
-function Operate({onActiveTabChange}) {
+function Operate() {
   const [contractVisible, setContractVisible] = useState(false)
   const contractOptions = [
     {
@@ -35,7 +35,9 @@ function Operate({onActiveTabChange}) {
         {/* 操作区 */}
         <View className='vip-operate'>
           <View className='vip-operate-order operate-button' onClick={() => {
-            onActiveTabChange(Page.Menu)
+            Taro.navigateTo({
+              url: `/pages/index/index?activeTab=${Page.Menu}`
+            })
           }}>
             <View className='vip-operate-order-image'>
               <img src={sukiyaki}/>
@@ -45,7 +47,9 @@ function Operate({onActiveTabChange}) {
           <View className='vip-operate-other'>
             <View className='vip-operate-other-item operate-button'
             onClick={() => {
-              onActiveTabChange(Page.Redeem)
+              Taro.navigateTo({
+                url: `/pages/redeem/index`
+              })
             }}>
               <View className='vip-operate-other-item-image'>
                 <img src={qrCode}/>

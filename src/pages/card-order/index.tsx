@@ -7,8 +7,9 @@ import CardOrderItem from './card-order-item'
 import Empty from 'src/components/empty'
 import LoadMore from 'src/components/load-more'
 import { useState } from 'react'
+import Taro from '@tarojs/taro'
 
-function CardList({onActiveTabChange}) {
+function CardList() {
 
   const [hasNextPage, setHasNextPage] = useState(true)
  
@@ -81,7 +82,7 @@ function CardList({onActiveTabChange}) {
                 <ArrowLeft size={14} />
               </>
             }
-            onBackClick={() => onActiveTabChange(Page.Main)}
+            onBackClick={() => Taro.navigateBack()}
           >
           <span>我的订阅卡订单</span>
           </NavBar>

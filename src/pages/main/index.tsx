@@ -9,8 +9,9 @@ import UserInfo from "./user-info";
 import Operate from './operate';
 import Marketing from './marketing';
 import { View } from '@tarojs/components'
+import CustomTabbar from 'src/components/custom-tab-bar';
 
-function Main({onActiveTabChange}) {
+function Main() {
   
   const onChange: CommonEventFunction<TaroSwiperProps.onChangeEventDetail> = (
     e
@@ -25,10 +26,9 @@ function Main({onActiveTabChange}) {
     'https://s2.loli.net/2024/12/06/52UwuZzNq1loeTv.png',
   ]
   
-  const mainNoticeText = '被食物治愈的一天!!'
-
   return (
       <>
+        <View className='main-container'>
         {/* 主广告栏 */}
         <Swiper defaultValue={1} autoPlay onChange={onChange} height={400}>
           {mainBannerList.map((item, index) => (
@@ -43,10 +43,10 @@ function Main({onActiveTabChange}) {
             </Swiper.Item>
           ))}
         </Swiper>
-        <UserInfo onActiveTabChange={onActiveTabChange}/>
-        <Operate onActiveTabChange={onActiveTabChange}/>
+        <UserInfo/>
+        <Operate/>
         <Marketing />
-        <View style={{height:'100px'}}></View>
+        </View>
       </>
   )
 }

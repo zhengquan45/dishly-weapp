@@ -2,7 +2,8 @@ import './index.scss'
 import { View } from '@tarojs/components'
 import OrderList from './order-list'
 import { useState } from 'react'
-import Tarbar from '../../components/tarbar'
+import Tarbar from 'src/components/tabs'
+import CustomTabbar from 'src/components/custom-tab-bar';
 
 function Order() {
 

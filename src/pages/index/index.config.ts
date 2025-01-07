@@ -1,3 +1,3 @@
 export default definePageConfig({
-  navigationBarTitleText: 'dishly-weapp'
+  navigationBarTitleText: '首页'
 })

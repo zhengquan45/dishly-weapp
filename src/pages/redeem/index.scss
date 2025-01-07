@@ -11,9 +11,17 @@
             margin: 20px;
             position: relative;
             .redeem-transfer{
-                position:absolute;
+                position: absolute;
                 bottom: 0;
                 right: 0;
+                width: 30px;
+                height: 30px;
+                background: #fff;
+                border-radius: 50%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
             }
         }
         .redeem-title{

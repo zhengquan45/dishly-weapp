@@ -5,7 +5,17 @@ const config: UserConfigExport<'webpack5'> = {
     stats: true
   },
   mini: {},
-  h5: {}
+  h5: {
+    devServer: {
+      proxy: {
+        '/': {
+          target: 'http://localhost:8091',
+          changeOrigin: true,
+          pathRewrite: { '^/': '/' },
+        },
+      },
+    },
+  }
 };
 
 export default config;

@@ -1,10 +1,9 @@
 import { View } from '@tarojs/components'
 import { Avatar, NoticeBar} from '@nutui/nutui-react-taro'
 import './index.scss'
-import { Page } from 'src/constants/const'
+import Taro from '@tarojs/taro'
 
-
-function UserInfo({onActiveTabChange}) {
+function UserInfo() {
   
   const mainNoticeText = '被食物治愈的一天!!'
 
@@ -21,7 +20,9 @@ function UserInfo({onActiveTabChange}) {
                 />
               </View>
               <View className='vip-user-info' onClick={()=>{
-                onActiveTabChange(Page.Profile)
+                Taro.navigateTo({
+                  url: `/pages/profile/index`
+                })
               }}>
                 <View className='vip-user-nick'>Zhqqqq</View>
                 <View className='vip-user-level'>
@@ -29,7 +30,9 @@ function UserInfo({onActiveTabChange}) {
                 </View>
               </View>
               <View className='vip-user-assert' onClick={()=>{
-                onActiveTabChange(Page.Card)
+               Taro.navigateTo({
+                url: `/pages/card/index`
+              })
               }}>
               <View className='vip-user-assert-num'>5
                 <span>剩余20次</span>
@@ -39,7 +42,9 @@ function UserInfo({onActiveTabChange}) {
                 </View>
               </View>
               <View className='vip-user-assert' onClick={()=>{
-                onActiveTabChange(Page.Coupon)
+                Taro.navigateTo({
+                  url: `/pages/coupon/index`
+                })
               }}>
                 <View className='vip-user-assert-num'>6</View>
                 <View className='vip-user-assert-text'>

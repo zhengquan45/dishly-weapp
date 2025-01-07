@@ -7,9 +7,10 @@ import { Page } from 'src/constants/const'
 import LoadMore from 'src/components/load-more'
 import Empty from 'src/components/empty'
 import { useState } from 'react'
+import Taro from '@tarojs/taro'
 
 
-function Card({onActiveTabChange}) {
+function Card() {
   const [hasNextPage, setHasNextPage] = useState(false)
 
   const cards:CardItemProps[] = [
@@ -69,7 +70,9 @@ function Card({onActiveTabChange}) {
                 <ArrowLeft size={14} />
               </>
             }
-            onBackClick={() => onActiveTabChange(Page.Main)}
+            onBackClick={() => 
+              Taro.navigateBack()
+            }
           >
           <span style={{color: '#fff'}}>订阅卡</span>
           </NavBar>
@@ -79,13 +82,17 @@ function Card({onActiveTabChange}) {
               <View className='card-info-body-text'><span>{cards.length}</span> 张 | 剩余 {totalRemainCount} 次</View>
               <View className='card-info-body-operate'>
                 <Button type="primary" onClick={()=>{
-                  onActiveTabChange(Page.Menu)
+                  Taro.navigateTo({
+                    url: `/pages/menu/index`
+                  })
                 }}>去使用</Button>
               </View>
             </View>
             <View className='card-info-tag'
             onClick={()=>{
-              onActiveTabChange(Page.CardOrder)
+              Taro.navigateTo({
+                url: `/pages/card-order/index`
+              })
             }}
             >查看订阅卡订单
               <ArrowRight/>
@@ -97,7 +104,7 @@ function Card({onActiveTabChange}) {
               cards.length > 0 ? (
                 <>
                   {cards.map((card: CardItemProps) => (
-                    <CardItem key={card.id} cardItem={card} onActiveTabChange={onActiveTabChange}/>
+                    <CardItem key={card.id} cardItem={card}/>
                   ))}
                   <LoadMore hasNextPage={hasNextPage} />
                 </>

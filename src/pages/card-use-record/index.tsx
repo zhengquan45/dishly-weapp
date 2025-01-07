@@ -1,7 +1,7 @@
 import './index.scss'
 import { View } from '@tarojs/components'
 
-function CardUseRecord({onActiveTabChange}) {
+function CardUseRecord() {
  
 
   return (

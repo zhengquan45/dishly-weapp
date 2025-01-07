@@ -7,8 +7,9 @@ import { Page } from 'src/constants/const'
 import CardTemplateItem from './card-template-item'
 import Empty from 'src/components/empty'
 import { useState } from 'react'
+import Taro from '@tarojs/taro'
 
-function Card({onActiveTabChange}) {
+function Card() {
 
   const [hasNextPage, setHasNextPage] = useState(false)
 
@@ -57,7 +58,7 @@ function Card({onActiveTabChange}) {
                 <ArrowLeft size={14} />
               </>
             }
-            onBackClick={() => onActiveTabChange(Page.Main)}
+            onBackClick={() => Taro.navigateBack()}
           >
           <span style={{color: '#fff'}}>订阅卡商城</span>
           </NavBar>
@@ -68,14 +69,15 @@ function Card({onActiveTabChange}) {
                 <View className='card-shop-header-title'>订阅卡</View>
                 <View className='card-shop-header-subtitle'>充值即到账</View>
               </View>
-              <View className='card-shop-header-more'>更多 <ArrowRight/> </View>
             </View>
             <View className='card-shop-body'>
               {
                 cards.length > 0 ?
                 cards.map((cardItem,index) => {
                   return <CardTemplateItem key={index} cardItem={cardItem} onClick={()=>{
-                    onActiveTabChange(1)
+                    Taro.navigateTo({
+                      url: `/pages/main/index`
+                    })
                   }}/>
                 })
                 :

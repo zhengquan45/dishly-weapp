@@ -1,15 +1,15 @@
 import './index.scss'
 import { View } from '@tarojs/components'
-import { Page } from 'src/constants/const'
 import { NavBar } from '@nutui/nutui-react-taro'
 import { ArrowLeft } from '@nutui/icons-react-taro'
-import TarBar from 'src/components/tarbar'
+import TarBar from 'src/components/tabs'
 import CouponItem from './coupon-item'
 import LoadMore from 'src/components/load-more'
 import Empty from 'src/components/empty'
 import { useState } from 'react'
+import Taro from '@tarojs/taro'
 
-function Coupon({ onActiveTabChange }) {
+function Coupon() {
   const [hasNextPage, setHasNextPage] = useState(false)
 
   const coupons:CouponItemProps[] = [
@@ -41,7 +41,9 @@ function Coupon({ onActiveTabChange }) {
                 <ArrowLeft size={14} />
               </>
             }
-            onBackClick={() => onActiveTabChange(Page.Main)}
+            onBackClick={() => 
+              Taro.navigateBack()
+            }
           >
           <span>我的优惠券</span>
           </NavBar>
@@ -50,7 +52,7 @@ function Coupon({ onActiveTabChange }) {
             {
               coupons.length > 0 ?
               coupons.map((couponItem:CouponItemProps) => {
-                return <CouponItem couponItem={couponItem} onActiveTabChange={onActiveTabChange}/>
+                return <CouponItem couponItem={couponItem}/>
               })
               :
               <Empty children='您没有相关优惠券～'/>

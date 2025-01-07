@@ -4,9 +4,9 @@ import { Button } from '@nutui/nutui-react-taro'
 import moment from 'moment'
 import { useState } from 'react'
 import { TriangleUp,TriangleDown } from '@nutui/icons-react-taro'
-import { Page } from 'src/constants/const'
+import Taro from '@tarojs/taro'
 
-function CouponItem({couponItem, onActiveTabChange,showDetail=false}) {
+function CouponItem({couponItem,showDetail=false}) {
 
   const [expanded, setExpanded] = useState(false);
 
@@ -53,7 +53,9 @@ function CouponItem({couponItem, onActiveTabChange,showDetail=false}) {
                 <Button 
                   type="primary"
                   onClick={() => {
-                    onActiveTabChange(Page.Menu)
+                    Taro.navigateTo({
+                      url: `/pages/menu/index`
+                    })
                   }}
                 >去使用</Button>
             </View>

@@ -1,3 +1,3 @@
 export default definePageConfig({
-  navigationBarTitleText: '订阅次卡'
+  navigationBarTitleText: '我的订阅卡'
 })

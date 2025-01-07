@@ -1,10 +1,9 @@
 import './index.scss'
 import { View } from '@tarojs/components'
 import { Button } from '@nutui/nutui-react-taro'
-import { Page } from '../../../constants/const'
+import Taro from '@tarojs/taro'
 
-
-function CardItem({cardItem,onActiveTabChange}) {
+function CardItem({cardItem}) {
  
 
   return (
@@ -23,7 +22,9 @@ function CardItem({cardItem,onActiveTabChange}) {
           </View>
           <View className='card-item-operate'>
             <Button type='primary' size='mini' onClick={()=>{
-              onActiveTabChange(Page.CardUseRecord)
+              Taro.navigateTo({
+                url: `/pages/card/card-use-record/index`
+              })
             }}>查看使用明细</Button>
           </View>
         </View>
