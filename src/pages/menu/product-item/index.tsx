@@ -2,8 +2,6 @@ import { View } from '@tarojs/components'
 import './index.scss'
 import { IconFont } from '@nutui/icons-react-taro'
 import { Price } from '@nutui/nutui-react-taro'
-import plus from '@assets/images/plus.png'
-import minus from '@assets/images/minus-line.png'
 import { plusItem, minusItem } from "src/actions/items";
 import { useDispatch } from "react-redux";
 
@@ -22,24 +20,34 @@ function ProductItem({productItem, itemNum}) {
       <>
        <View className='product-item'>
               <View className='product-item-image'>
-                <img src={productItem.img} />
+                <img src={productItem.imageUrl} />
               </View>
               <View className='product-item-info'>
                 <View className='product-item-title'>{productItem.name}</View>
-                <View className='product-item-subtitle'>{productItem.subname}</View>
+                <View className='product-item-subtitle'>{productItem.subName}</View>
                 <View className='product-item-price'>
                   <Price style={{color:'#000'}} price={productItem.price} size="normal" thousands />
                 </View>
                 <View style={{position: 'absolute',right:0,bottom: 0,display:'flex',alignItems:'center'}}>
-                  <IconFont name={minus} size='20' onClick={()=>{
-                      console.log(productItem,'点击了减号')
-                      reduceItem(productItem.id)
-                  }}/>
-                  <span style={{fontSize:20,margin:'0px 10px'}}>{itemNum}</span>
-                  <IconFont name={plus} size='20'  onClick={()=>{
-                      console.log(productItem,'点击了加号')
-                      addItem(productItem.id)
-                  }}/>
+                  {
+                    itemNum > 0 ? 
+                    (
+                      <>
+                        <IconFont color='#ff0000' fontClassName='iconfont' classPrefix='icon' name='minus' onClick={()=>{
+                          reduceItem(productItem)
+                        }}/>
+                        <span style={{fontSize:16,margin:'0px 10px'}}>{itemNum}</span>
+                        <IconFont color='#ff0000' fontClassName='iconfont' classPrefix='icon' name='plus' onClick={()=>{
+                          addItem(productItem)
+                        }}/>
+                      </>
+                    ):
+                    (
+                      <IconFont color='#ff0000' fontClassName='iconfont' classPrefix='icon' name='plus' onClick={()=>{
+                        addItem(productItem)
+                      }}/>
+                    )
+                  }
                 </View>
                
               </View>

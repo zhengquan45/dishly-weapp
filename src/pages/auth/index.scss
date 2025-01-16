@@ -1,0 +1,49 @@
+.auth-container{
+    height: 100vh;
+    background: aliceblue;
+    display: flex;
+    flex-direction: column;
+    .auth-avatar-container{
+        flex:3;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        .auth-avatar-title{
+            font-size: 20px;
+            margin-top: 20px;
+        }
+    }
+    .auth-info-desc{
+        flex:1;
+        font-size: 20px;
+        font-weight: bold;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .auth-operate{
+        flex:3;
+        display: flex;
+        flex-direction: column;
+        width: calc(100% - 80px);
+        margin: 0 40px;
+        .auth-operate-desc{
+            margin: 10px;
+            font-size: 14px;
+            text-align: center;
+            color: #767676;
+        }
+        .auth-operate-check{
+            margin: 10px 0;
+
+        }
+    }
+    .auth-nologin{
+        flex:3;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+}

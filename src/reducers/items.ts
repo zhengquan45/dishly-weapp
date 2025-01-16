@@ -8,21 +8,21 @@ export default function itemsReducer(
 ): Item[] {
   switch (action.type) {
     case PLUS_ITEM: {
-      const id = action.payload; // 假定 payload 是 id
+      const productItem: ProductItemProps = action.payload; // 假定 payload 是 ProductItemProps
       const newItems = [...state];
-      const index = newItems.findIndex((item) => item.id === id);
+      const index = newItems.findIndex((item) => item.productItem.id === productItem.id);
       if (index > -1 && newItems[index].num < 100) {
         newItems[index].num += 1; // 数量 +1
       } else {
-        newItems.push({ id, num: 1 }); // 新增项目
+        newItems.push({ productItem, num: 1 }); // 新增项目
       }
       return newItems;
     }
 
     case MINUS_ITEM: {
-      const id = action.payload; // 假定 payload 是 id
+      const productItem: ProductItemProps = action.payload; // 假定 payload 是 ProductItemProps
       const newItems = [...state];
-      const index = newItems.findIndex((item) => item.id === id);
+      const index = newItems.findIndex((item) => item.productItem.id === productItem.id);
       if (index > -1) {
         if (newItems[index].num > 1) {
           newItems[index].num -= 1; // 数量 -1

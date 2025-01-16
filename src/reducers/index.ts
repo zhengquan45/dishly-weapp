@@ -4,7 +4,7 @@ import activeTabReducer from './active-tab'
 
 const rootReducer = combineReducers({
     items: itemsReducer,
-    activeTab: activeTabReducer
+    activeTab: activeTabReducer,
 });
 
 export type RootState = ReturnType<typeof rootReducer>;

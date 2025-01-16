@@ -1,5 +1,4 @@
 import { View } from '@tarojs/components'
-import { Page } from '../../constants/const'
 import { NavBar, Button, Input, Avatar } from '@nutui/nutui-react-taro'
 import { ArrowLeft, ArrowTransfer } from '@nutui/icons-react-taro'
 import './index.scss'

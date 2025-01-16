@@ -1,47 +1,64 @@
 import './index.scss'
-import {Swiper} from '@nutui/nutui-react-taro'
-import {
-  CommonEventFunction,
-  SwiperProps as TaroSwiperProps,
-} from '@tarojs/components'
-
+import { Swiper } from '@nutui/nutui-react-taro'
 import UserInfo from "./user-info";
 import Operate from './operate';
 import Marketing from './marketing';
 import { View } from '@tarojs/components'
-import CustomTabbar from 'src/components/custom-tab-bar';
+
+// Taro 额外添加的 hooks 要从 '@tarojs/taro' 中引入
+
+import Taro from '@tarojs/taro'
+import { useDidShow } from '@tarojs/taro'
+import { useState } from 'react'
+import request from 'src/utils/request'
 
 function Main() {
-  
-  const onChange: CommonEventFunction<TaroSwiperProps.onChangeEventDetail> = (
-    e
-  ) => {
-    console.log(`onChange is trigger ${e}`)
-  }
 
-  const mainBannerList = [
-    'https://s2.loli.net/2024/12/18/iA4je2JWfu1U7ps.jpg',
-    'https://s2.loli.net/2024/12/18/CgMJtcQXvEALmK9.jpg',
-    'https://s2.loli.net/2024/12/18/iA4je2JWfu1U7ps.jpg',
-    'https://s2.loli.net/2024/12/06/52UwuZzNq1loeTv.png',
-  ]
+  const [mainBanners, setMainBanners] = useState<MainBannerItemProps[]>([]); // 这里指定了类型为 string[] 
+
+  // 获取主 Banner 数据
+  const fetchMainBanners = async () => {
+    try {
+      const data = await request({
+        url: '/api/banner/main',
+        method: 'GET',
+      });
+      setMainBanners(data);
+    } catch (error) {
+      console.error('获取主 Banner 数据失败:', error);
+    }
+  };
+
+  // 可以使用所有的 React Hooks
+  useDidShow(() => {
+    // 加载主 banner 数据
+    fetchMainBanners();
+  });
   
   return (
       <>
         <View className='main-container'>
         {/* 主广告栏 */}
-        <Swiper defaultValue={1} autoPlay onChange={onChange} height={400}>
-          {mainBannerList.map((item, index) => (
-            <Swiper.Item key={item}>
+        <Swiper defaultValue={1} autoPlay height={400}>
+        {mainBanners.length > 0 ? (
+          mainBanners.map((item, index) => (
+            <Swiper.Item key={index}>
               <img
                 width="100%"
                 height="100%"
-                onClick={() => console.log(index)}
-                src={item}
+                onClick={() => {
+                  Taro.navigateTo({
+                    url: item.clickUrl,
+                  });
+                }}
+                src={item.contentUrl}
                 alt=""
               />
             </Swiper.Item>
-          ))}
+          ))
+        ) : (
+          <View>Loading...</View>
+        )}
         </Swiper>
         <UserInfo/>
         <Operate/>

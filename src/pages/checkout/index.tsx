@@ -18,45 +18,13 @@ function Checkout() {
   const [expanded, setExpanded] = useState(false);
   const items = useSelector((state: RootState) => state.items); // 获取 items 状态
 
-  const products = [
-    {
-      id:1,
-      name: '红烧肉',
-      subname: '满12抽行李箱',
-      price: 12,
-      img: 'https://img.yzcdn.cn/vant/apple-1.jpg',
-    },
-    {
-      id:2,
-      name: '鱼香肉丝',
-      subname:'芳香四溢',
-      price: 10,
-      img: 'https://img.yzcdn.cn/vant/apple-2.jpg',
-    },
-    {
-      id:3,
-      name: '宫保鸡丁',
-      subname:'麻辣鲜香',
-      price: 15,  
-      img: 'https://img.yzcdn.cn/vant/apple-3.jpg',
-    }];
-
   const totalNum = items.reduce((total, item) => {
     return total + item.num;
   }, 0);
 
-  const getProduct = (id) => {
-    const product = products.find((product) => product.id === id);
-    console.log('product',product)
-    return product;
-  }  
-
   const totalPrice = items.reduce((total, item) => {
-    const product = getProduct(item.id);
-    if(product){
-      return total + product.price * item.num;
-    }
-    return total;
+    // 增加一个判断，查询商品是否存在、是否有效、是否变价
+    return total + item.productItem.price * item.num;
   }, 0);
 
 
@@ -84,11 +52,11 @@ function Checkout() {
             <View className='checkout-order-items'>
               {items.length > 2 && !expanded
               ? items.slice(0,2).map((item, index)=> (
-                  <ProductItem key={index} productItem={getProduct(item.id)} itemNum={item.num}/>
+                  <ProductItem key={index} productItem={item.productItem} itemNum={item.num}/>
                 ))
                 :
                 items.map((item, index)=> (
-                 <ProductItem key={index} productItem={getProduct(item.id)} itemNum={item.num}/>
+                 <ProductItem key={index} productItem={item.productItem} itemNum={item.num}/>
                 ))
               }
               { items.length > 2 && 

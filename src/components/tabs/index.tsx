@@ -16,7 +16,7 @@ function Tabs({options}) {
        <View className='tabs-container'>
         {
         options.map((option,index) => (
-            <View className={tabsItemClass(index)} onClick={()=>{
+            <View key={index} className={tabsItemClass(index)} onClick={()=>{
               setTabsIndex(index)
             }}>{option}</View>
           ))

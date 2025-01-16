@@ -18,38 +18,10 @@ function Index() {
     return Number(router.params.activeTab) || Page.Main; // 默认值为 0
   });
 
-  const renderContent = () => {
-    switch (activeTab) {
-      case Page.Main:
-        return <Main/>;
-      case Page.Menu:
-        return <Menu/>;
-      case Page.Order:
-        return <Order/>;
-      case Page.Profile:
-        return <Profile/>;
-      default:
-        return <Main/>;
-    }
-  };
 
   return (
         <View className='app-container'>
           {/* 内容区域 */}
-          {renderContent()}
-          {/* Tabbar */}
-          <Tabbar className='tabbar-container'
-                fixed  
-                value={activeTab}
-                onSwitch={(value) => {
-                  setActiveTab(value);
-          }}
-          >
-            <Tabbar.Item title="首页" />
-            <Tabbar.Item title="点餐" dot />
-            <Tabbar.Item title="订单" />
-            <Tabbar.Item title="我的" />
-          </Tabbar>
         </View>
   )
 }

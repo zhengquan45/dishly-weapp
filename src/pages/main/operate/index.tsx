@@ -3,7 +3,6 @@ import { ActionSheet , ActionSheetOption } from '@nutui/nutui-react-taro'
 import './index.scss'
 import { useState } from "react";
 import Taro from "@tarojs/taro";
-import { Page } from 'src/constants/const';
 import sukiyaki from 'src/assets/images/sukiyaki.png'
 import qrCode from '@/assets/images/qr-code.png'
 import customerService from '@/assets/images/customer-service.png'
@@ -35,8 +34,8 @@ function Operate() {
         {/* 操作区 */}
         <View className='vip-operate'>
           <View className='vip-operate-order operate-button' onClick={() => {
-            Taro.navigateTo({
-              url: `/pages/index/index?activeTab=${Page.Menu}`
+            Taro.switchTab({
+              url: `/pages/menu/index`
             })
           }}>
             <View className='vip-operate-order-image'>

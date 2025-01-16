@@ -5,15 +5,13 @@ import coupon from '@assets/images/discount-voucher.png'
 import cardWallet from '@assets/images/wallet.png'
 import customerService from '@assets/images/customer-service.png'
 import credit from '@assets/images/credit-card.png'
-import order from '@assets/images/receipt.png'
+import order from '@assets/images/order.png'
+import location from '@assets/images/location.png'
 import scanner from '@assets/images/scanner.png'
 import we from '@assets/images/worldwide.png'
 import christmasDecoration from '@assets/images/christmas-decoration.png'
-import CustomTabbar from 'src/components/custom-tab-bar';
 import Taro from '@tarojs/taro';
-import { setActiveTab } from 'src/actions/active-tab';
 import { useDispatch } from 'react-redux';
-import { Page } from 'src/constants/const';
 
 function Profile() {
 
@@ -75,9 +73,22 @@ function Profile() {
                更多服务
             </View>
             <View className='profile-service-body'>
+            
             <View className='profile-service-item' onClick={()=>{
                Taro.navigateTo({
-                url: `/pages/index/index?acticeTab=${Page.Order}`
+                url: `/pages/card-shop/index`
+              })
+            }}>
+              <View className='profile-service-item-icon'>
+                <img src={credit}/>
+              </View>
+              <View className='profile-service-item-info'>
+                购买订阅卡
+              </View>
+            </View>
+            <View className='profile-service-item' onClick={()=>{
+               Taro.switchTab({
+                url: `/pages/order/index`
               })
             }}>
               <View className='profile-service-item-icon'>
@@ -89,14 +100,14 @@ function Profile() {
             </View>
             <View className='profile-service-item' onClick={()=>{
                Taro.navigateTo({
-                url: `/pages/card-shop/index`
+                url: `/pages/address/index`
               })
             }}>
               <View className='profile-service-item-icon'>
-                <img src={credit}/>
+                <img src={location}/>
               </View>
               <View className='profile-service-item-info'>
-                购买订阅卡
+                收货地址
               </View>
             </View>
             <View className='profile-service-item' onClick={()=>{

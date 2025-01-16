@@ -17,7 +17,7 @@ function Delivery() {
           <View className='delivery-item'>
             <Location className='delivery-address-prefix-icon'/>
             <View className='delivery-address-subtext'>
-              直线距离 256m
+              8号楼 3单元 501
             </View>
           </View>
         </View>

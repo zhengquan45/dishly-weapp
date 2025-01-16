@@ -1,6 +1,7 @@
 import { View} from '@tarojs/components'
 import './index.scss'
 import { Button, Price } from '@nutui/nutui-react-taro'
+import { Trash } from '@nutui/icons-react-taro'
 import { useState } from "react";
 import ProductItem from '../product-item';
 
@@ -8,9 +9,10 @@ import { useSelector, useDispatch } from "react-redux";
 import { clearItems } from "src/actions/items";
 import { RootState } from 'src/reducers';
 import Taro from '@tarojs/taro';
+import foodTary from 'src/assets/images/food-tray.png';
 
 
-function Cart({products}) {
+function Cart() {
   
   const [ cartSelectProductShow , setCartSelectProductShow ] = useState(false);
   
@@ -30,14 +32,9 @@ function Cart({products}) {
     return `cart-mask ${items.length > 0 && cartSelectProductShow ? '' : 'cart-mask-hidden'}`
   }
 
-  const getProduct = (id) => {
-    return products.find((product) => product.id === id);
-  }  
-
   const totalPrice = () => {
     return items.reduce((total, item) => {
-      const product = getProduct(item.id);
-      return total + product.price * item.num;
+      return total + item.productItem.price * item.num;
     }, 0);
   }
 
@@ -49,25 +46,28 @@ function Cart({products}) {
         }}></View>
         <View className={cartSelectProductContainerClass()}>
             <View className='cart-select-product-header'>
-              <View className='cart-select-product-title'>已选商品</View>
+              <View className='cart-select-product-title'>已点套餐</View>
               <View className='cart-select-product-clear' onClick={()=>{
                 dispatch(clearItems())
-              }}>清空</View>
+              }}><Trash/>清空</View>
             </View>
             <View className='cart-select-product-body'>
               {items.map((item,index)=>(
-                <ProductItem key={index} productItem={getProduct(item.id)} itemNum={item.num} />
+                <ProductItem key={index} productItem={item.productItem} itemNum={item.num} />
               ))}
             </View>
         </View>
         <View className={cartContainerClass()}>
           <View className='cart-product-num' onClick={()=>{
             setCartSelectProductShow(!cartSelectProductShow)
-          }}>购物车 {items.length} 件</View>
+          }}>
+            <img src={foodTary} />
+            <span>{items.length}</span>
+          </View>
           <View className='cart-product-operate'>
             <Button type="primary" onClick={()=>{
               Taro.navigateTo({
-                url: 'pages/checkout/index'
+                url: '/pages/checkout/index'
               })
             }}>去结算</Button>
             <View className='cart-product-price'>合计 

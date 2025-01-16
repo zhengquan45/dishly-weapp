@@ -4,7 +4,8 @@ const config: UserConfigExport<'webpack5'> = {
     quiet: false,
     stats: true
   },
-  mini: {},
+  mini: {
+  },
   h5: {
     devServer: {
       proxy: {
